@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123c8c">
+  <title>Pedidos del local | Bogl Bogl</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+   <div class="brand">
+
+    <img
+        src="bogly2.png"
+        alt="Bogl Bogl"
+        class="brand-logo"
+    >
+
+    <div>
+        <p class="eyebrow">BOGL BOGL</p>
+        <h1>Productos faltantes</h1>
+    </div>
+
+</div>
+    <button id="btnAbrirResumen" class="cart-button" type="button">
+      Ver pedido <span id="contadorPedido" class="badge">0</span>
+    </button>
+  </header>
+
+  <main class="layout">
+    <section class="controls" aria-label="Datos y filtros">
+      <div class="field">
+  <label for="trabajador">Trabajador</label>
+
+  <select id="trabajador" required>
+    <option value="">Selecciona un trabajador</option>
+    <option value="Eduardo Lira">Eduardo Lira</option>
+    <option value="Claudia">Claudia Kwon</option>
+    <option value="Giordi">Giordi Nostrosa</option>
+    <option value="Giordi">Eduardo Márquez</option>
+  </select>
+</div>
+      <div class="field search-field">
+        <label for="buscador">Buscar producto</label>
+        <input id="buscador" type="search" placeholder="Ej.: Shin, bebida, vaso...">
+      </div>
+      <div id="categorias" class="categories" aria-label="Filtrar por categoría"></div>
+    </section>
+
+    <section class="catalog-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">CATÁLOGO</p>
+          <h2 id="tituloCatalogo">Todos los productos</h2>
+        </div>
+        <p id="resultadoConteo" class="muted"></p>
+      </div>
+      <div id="listaProductos" class="product-list"></div>
+      <div id="sinResultados" class="empty-state" hidden>
+        <strong>No encontramos productos.</strong>
+        <span>Prueba con otra búsqueda o categoría.</span>
+      </div>
+    </section>
+  </main>
+
+  <aside id="panelResumen" class="summary-panel" aria-hidden="true">
+    <div class="summary-backdrop" data-close-summary></div>
+    <section class="summary-card" role="dialog" aria-modal="true" aria-labelledby="tituloResumen">
+      <div class="summary-header">
+        <div>
+          <p class="eyebrow">RESUMEN</p>
+          <h2 id="tituloResumen">Pedido actual</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-summary aria-label="Cerrar">×</button>
+      </div>
+      <div id="resumenProductos" class="summary-items"></div>
+      <div class="field">
+        <label for="observaciones">Observaciones generales</label>
+        <textarea id="observaciones" rows="3" maxlength="500" placeholder="Información adicional para quien reciba el pedido"></textarea>
+      </div>
+      <div class="summary-total">
+        <span>Productos diferentes</span>
+        <strong id="totalProductos">0</strong>
+      </div>
+      <p id="mensajeEstado" class="status-message" role="status"></p>
+      <div class="summary-actions">
+
+    <button
+        id="btnLimpiar"
+        class="button button-secondary"
+        type="button">
+        🗑️Limpiar
+    </button>
+
+    <button
+        id="btnCopiar"
+        class="button button-secondary"
+        type="button">
+        📋 Copiar
+    </button>
+
+    <button
+        id="btnDescargar"
+        class="button button-primary"
+        type="button">
+        PDF
+    </button>
+
+</div>
+    </section>
+  </aside>
+
+  <template id="productoTemplate">
+    <article class="product-card">
+      <div class="product-info">
+        <span class="product-category"></span>
+        <h3 class="product-name"></h3>
+        <span class="product-classification"></span>
+      </div>
+      <div class="quantity-control" aria-label="Cantidad">
+        <button class="quantity-button decrease" type="button" aria-label="Disminuir cantidad">−</button>
+        <input class="quantity-input" type="number" min="0" max="999" inputmode="numeric" aria-label="Cantidad solicitada">
+        <button class="quantity-button increase" type="button" aria-label="Aumentar cantidad">+</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="js/productos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/pdf.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
