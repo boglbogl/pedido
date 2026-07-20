@@ -223,7 +223,7 @@ const CATALOGO = {
       [null, "Diente de Dragon"],
       [null, "Zapallo Italiano",null,"unidad"],
       [null, "Pepino", null, "Unidad"],
-      [null, "Papa", null,],
+      [null, "Papa"],
       [null, "Repollo", null, "Unidad"],
       [null, "Repollo Morado", null, "Unidad"],
 
