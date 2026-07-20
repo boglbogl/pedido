@@ -297,7 +297,7 @@ const CATALOGO = {
       [239, "Salchicha"],
       [240, "Queso entero"],
       [241, "Huevos"],
-      [242, ""],
+      [242, "Champiñones"],
       [243, ""],
       [244, "Kimchi"],
     ]
