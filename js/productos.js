@@ -226,6 +226,7 @@ const CATALOGO = {
       [null, "Papa"],
       [null, "Repollo", null, "Unidad"],
       [null, "Repollo Morado", null, "Unidad"],
+       [null, "Espinaca", null, "Unidad"],
 
     ]
   },
