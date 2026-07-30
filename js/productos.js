@@ -324,7 +324,7 @@ const CATALOGO = {
       [220, "Platos"],
       [221, "Platos Ramyeon"],
       [222, "Rolló etiquetadora"],
-      [223, "Rolló máquina"],
+      [223, "Papel nova máquina"],
       [224, "Servilleta"],
       [225, "Tapa platos"],
       [226, "Tapa vaso"],
