@@ -206,7 +206,7 @@ const CATALOGO = {
       
       [152,"Donkatsu",],
       [232, "Jeyuk Bokkeum"],
-      [233, "Pollo Frito Bolsa"],
+      [233, "Pollo Frito Bolsa",null, "caja"],
       [234, ""],
       [235, ""],
       [236, "" ],
