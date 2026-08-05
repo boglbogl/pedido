@@ -187,9 +187,25 @@
     texto += `👤 *Trabajador:* ${els.trabajador.value}\n`;
     texto += `📅 *Fecha:* ${new Date().toLocaleDateString("es-CL")}\n\n`;
 
+const iconosCategorias = {
+  "ASEO": "🧹",
+  "BEBIDAS": "🥤",
+  "DULCES": "🍬",
+  "HELADOS": "🍦",
+  "CARNES": "🥩",
+  "INSUMOS": "🧤",
+  "POTE": "🥡",
+  "POUCH": "🧃",
+  "RAMEN": "🍜",
+  "COCINA": "🍳"
+};
+
     categorias.forEach(categoria => {
 
-        texto += `📦 *${categoria.toUpperCase()}*\n`;
+       const icono =
+  iconosCategorias[categoria.toUpperCase()] || "📦";
+
+texto += `${icono} *${categoria.toUpperCase()}*\n`;
 
         grupos[categoria]
             .sort((a, b) => a.nombre.localeCompare(b.nombre, "es"))
