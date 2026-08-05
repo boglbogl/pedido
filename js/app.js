@@ -197,7 +197,8 @@ const iconosCategorias = {
   "POTE": "🥡",
   "POUCH": "🧃",
   "RAMEN": "🍜",
-  "COCINA": "🍳"
+  "COCINA": "🍳",
+  "VERDURAS": "🥬"
 };
 
     categorias.forEach(categoria => {
