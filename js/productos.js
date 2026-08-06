@@ -229,6 +229,8 @@ const CATALOGO = {
        [null, "Espinaca", null, "Unidad"],
 
     ]
+
+    
   },
   "Aseo": {
     clasificacion: "Aseo",
