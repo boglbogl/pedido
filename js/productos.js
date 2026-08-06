@@ -207,7 +207,7 @@ const CATALOGO = {
       [152,"Donkatsu",],
       [232, "Jeyuk Bokkeum"],
       [233, "Pollo Frito Bolsa",null, "caja"],
-      [234, ""],
+      [234, "Pecguha de pollo"],
       [235, ""],
       [236, "" ],
      
@@ -229,8 +229,6 @@ const CATALOGO = {
        [null, "Espinaca", null, "Unidad"],
 
     ]
-
-    
   },
   "Aseo": {
     clasificacion: "Aseo",
