@@ -217,10 +217,10 @@ const CATALOGO = {
     clasificacion: "unidad",
     unidad: "kg",
     productos: [
-      [175, "Cebolla"],
+      [175, "Cebolla",null,"unidad"],
       [176, "Lechuga",null,"unidad"],
       [177, "Zanahoria"],
-      [178, "Diente de Dragon"],
+      [178, "Diente de Dragon",null,"unidad"],
       [179, "Zapallo Italiano",null,"unidad"],
       [180, "Pepino", null, "Unidad"],
       [181, "Papa"],
