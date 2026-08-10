@@ -220,7 +220,7 @@ const CATALOGO = {
       [175, "Cebolla",null,"unidad"],
       [176, "Lechuga",null,"unidad"],
       [177, "Zanahoria"],
-      [178, "Diente de Dragon",null,"unidad"],
+      [178, "Diente de Dragon",null,"bolsa"],
       [179, "Zapallo Italiano",null,"unidad"],
       [180, "Pepino", null, "Unidad"],
       [181, "Papa"],
