@@ -303,7 +303,7 @@ const CATALOGO = {
       [245, "Queso entero"],
       [246, "Huevos"],
       [247, "Champiñones"],
-      [248, ""],
+      [248, "Tteok",null,"bolsa"],
       [249, "Kimchi"],
     ]
   },
@@ -333,7 +333,8 @@ const CATALOGO = {
       [269, "Tickets Getnet"],
       [270, "Tenedor"],
       [271, "Cucharas"],
-      [, "Bolsas de papel"],
+      [272, "Bolsas de papel"],
+      [272, "Bolsa negra Grande"],
     ]
   },
 };
