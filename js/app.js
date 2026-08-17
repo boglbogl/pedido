@@ -17,6 +17,23 @@
     observaciones: $("#observaciones"), total: $("#totalProductos"), mensaje: $("#mensajeEstado")
   };
 
+  function trabajadorSeleccionado() {
+  const trabajador =
+    document.getElementById("trabajador");
+
+  if (!trabajador.value) {
+    alert(
+      "Debes seleccionar un trabajador antes de agregar productos."
+    );
+
+    trabajador.focus();
+
+    return false;
+  }
+
+  return true;
+}
+
   function cargarEstado() {
     try {
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
@@ -76,28 +93,161 @@
     if (card) card.classList.toggle("selected", cantidad > 0);
   }
 
-  function renderProductos() {
-    const filtered = productosFiltrados();
-    els.lista.replaceChildren();
-    filtered.forEach(producto => {
-      const fragment = els.template.content.cloneNode(true);
-      const card = fragment.querySelector(".product-card");
-      const input = fragment.querySelector(".quantity-input");
-      card.dataset.productId = producto.id;
-      card.classList.toggle("selected", Boolean(state.cantidades[producto.id]));
-      fragment.querySelector(".product-category").textContent = producto.categoria;
-      fragment.querySelector(".product-name").textContent = producto.nombre;
-      fragment.querySelector(".product-classification").textContent = producto.clasificacion || "Producto";
-      input.value = state.cantidades[producto.id] || 0;
-      input.addEventListener("change", e => setCantidad(producto.id, e.target.value));
-      fragment.querySelector(".increase").addEventListener("click", () => { input.value = (state.cantidades[producto.id] || 0) + 1; setCantidad(producto.id, input.value); });
-      fragment.querySelector(".decrease").addEventListener("click", () => { input.value = Math.max(0, (state.cantidades[producto.id] || 0) - 1); setCantidad(producto.id, input.value); });
-      els.lista.append(fragment);
+  function actualizarBloqueoProductos() {
+  const hayTrabajador =
+    Boolean(
+      els.trabajador.value
+    );
+
+  document
+    .querySelectorAll(
+      ".increase, .decrease, .quantity-input"
+    )
+    .forEach(control => {
+      control.disabled =
+        !hayTrabajador;
     });
-    els.sinResultados.hidden = filtered.length > 0;
-    els.resultadoConteo.textContent = `${filtered.length} producto${filtered.length === 1 ? "" : "s"}`;
-    els.tituloCatalogo.textContent = state.categoria === "Todos" ? "Todos los productos" : state.categoria;
-  }
+    actualizarBloqueoProductos();
+}
+
+  function renderProductos() {
+  const filtered = productosFiltrados();
+
+  els.lista.replaceChildren();
+
+  filtered.forEach(producto => {
+    const fragment =
+      els.template.content.cloneNode(true);
+
+    const card =
+      fragment.querySelector(".product-card");
+
+    const input =
+      fragment.querySelector(".quantity-input");
+
+    const botonMas =
+      fragment.querySelector(".increase");
+
+    const botonMenos =
+      fragment.querySelector(".decrease");
+
+    card.dataset.productId =
+      producto.id;
+
+    card.classList.toggle(
+      "selected",
+      Boolean(
+        state.cantidades[producto.id]
+      )
+    );
+
+    fragment.querySelector(
+      ".product-category"
+    ).textContent =
+      producto.categoria;
+
+    fragment.querySelector(
+      ".product-name"
+    ).textContent =
+      producto.nombre;
+
+    fragment.querySelector(
+      ".product-classification"
+    ).textContent =
+      producto.clasificacion ||
+      "Producto";
+
+    input.value =
+      state.cantidades[producto.id] || 0;
+
+
+    // CAMBIO MANUAL DE CANTIDAD
+    input.addEventListener(
+      "change",
+      e => {
+        if (!trabajadorSeleccionado()) {
+          input.value =
+            state.cantidades[
+              producto.id
+            ] || 0;
+
+          return;
+        }
+
+        setCantidad(
+          producto.id,
+          e.target.value
+        );
+      }
+    );
+
+
+    // BOTÓN +
+    botonMas.addEventListener(
+      "click",
+      () => {
+        if (!trabajadorSeleccionado()) {
+          return;
+        }
+
+        input.value =
+          (
+            state.cantidades[
+              producto.id
+            ] || 0
+          ) + 1;
+
+        setCantidad(
+          producto.id,
+          input.value
+        );
+      }
+    );
+
+
+    // BOTÓN -
+    botonMenos.addEventListener(
+      "click",
+      () => {
+        if (!trabajadorSeleccionado()) {
+          return;
+        }
+
+        input.value =
+          Math.max(
+            0,
+            (
+              state.cantidades[
+                producto.id
+              ] || 0
+            ) - 1
+          );
+
+        setCantidad(
+          producto.id,
+          input.value
+        );
+      }
+    );
+
+    els.lista.append(fragment);
+  });
+
+  els.sinResultados.hidden =
+    filtered.length > 0;
+
+  els.resultadoConteo.textContent =
+    `${filtered.length} producto${
+      filtered.length === 1
+        ? ""
+        : "s"
+    }`;
+
+  els.tituloCatalogo.textContent =
+    state.categoria === "Todos"
+      ? "Todos los productos"
+      : state.categoria;
+}
 
   function itemsPedido() {
     return productos.filter(p => Number(state.cantidades[p.id]) > 0).map(p => ({...p, cantidad: Number(state.cantidades[p.id])}));
@@ -151,6 +301,11 @@
   }
 
   async function copiarPedido() {
+
+
+  if (!trabajadorSeleccionado()) {
+    return;
+  }
 
     const items = itemsPedido();
 
@@ -455,7 +610,13 @@ const productosHTML = categoriasOrdenadas
   }
 }
 
-  els.trabajador.addEventListener("change", guardarEstado);
+ els.trabajador.addEventListener(
+  "change",
+  () => {
+    guardarEstado();
+    actualizarBloqueoProductos();
+  }
+);
   els.observaciones.addEventListener("input", guardarEstado);
   $("#btnAbrirResumen").addEventListener("click", abrirResumen);
   document.querySelectorAll("[data-close-summary]").forEach(el => el.addEventListener("click", cerrarResumen));
