@@ -208,8 +208,8 @@ const CATALOGO = {
       [170, "Jeyuk Bokkeum"],
       [171, "Pollo Frito Bolsa",null, "caja"],
       [172, "Pechuga de pollo"],
-      [173, ""],
-      [174, "" ],
+      [173, "Carne molida"],
+      [174, "Bistec" ],
      
     ]
   },
