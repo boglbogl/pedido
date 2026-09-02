@@ -290,7 +290,7 @@ const CATALOGO = {
       [230, "Spam"],
       [231, "Atun"],
       [232, "Fideos de Camote"],
-      [233, "Hongo Shitake"],
+      [233, "Hongo  Deshidratado"],
       [234, "Polvo Rosado Yangyeom"],
       [235, "Chuño"],
       [236, "Curry"],
