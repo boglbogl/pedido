@@ -44,6 +44,8 @@ const CATALOGO = {
       [31, "Café Instaneo Caja"],
       [32, "Café Instaneo Unidad"],
       [33, "Coco Palm Yogurt"],
+      [null, "Welchs Mango Zero"],
+
     ]
   },
   "Helados": {
