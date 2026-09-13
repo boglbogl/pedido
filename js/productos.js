@@ -211,7 +211,8 @@ const CATALOGO = {
       [171, "Pollo Frito Bolsa",null, "caja"],
       [172, "Pechuga de pollo"],
       [173, "Carne molida"],
-      [174, "Bistec" ],
+      [174, "Bistec de vacuno" ],
+      [null, "Chuleta de cerdo" ],
      
     ]
   },
@@ -229,6 +230,7 @@ const CATALOGO = {
       [182, "Repollo", null, "Unidad"],
       [183, "Repollo Morado", null, "Unidad"],
        [184, "Espinaca", null, "Unidad"],
+        [null, "Jengibre", null, "Unidad"],
 
     ]
   },
@@ -307,6 +309,10 @@ const CATALOGO = {
       [247, "Champiñones"],
       [248, "Tteok",null,"bolsa"],
       [249, "Kimchi"],
+      [null, "Fideos"],
+      [null, "Leche"],
+      [null, "Mantequilla"],
+      
     ]
   },
   "Insumos": {
@@ -337,6 +343,7 @@ const CATALOGO = {
       [271, "Cucharas"],
       [272, "Bolsas de papel"],
       [272, "Bolsa negra Grande"],
+       [null, "Palos de madera"],
     ]
   },
 };
